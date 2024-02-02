@@ -1,0 +1,8 @@
+git add "파일"
+git commit -m "commit 메세지"
+
+원격저장소 연결은 
+
+git remote add orgin "https://github.com/rkdgkrud/vue"
+
+git push orgin master
