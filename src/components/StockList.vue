@@ -36,7 +36,7 @@ export default {
   methods: {
     showStockPrices() {
       // 버튼 클릭 시 주식 데이터 다시 가져오기
-      axios.get('http://localhost:3000/api/stocks')
+      axios.get('http://localhost:3000/stocks')
         .then(response => {
           this.stocks = response.data;
           this.showTable = true;

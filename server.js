@@ -1,22 +1,33 @@
-
+// server.js
 const express = require('express');
-const cors = require('cors'); // cors 미들웨어 추가
+const cors = require('cors');
+const oracleDbModule = require('./oracleDbModule');
 const app = express();
 const port = 3000;
 
-// 예제 주식 데이터
-const stocks = [
-  { id: 1, name: 'AAPL', price: 150 },
-  { id: 2, name: 'GOOGL', price: 2800 },
-  // Add more stocks as needed
-];
 
-// cors 미들웨어를 추가하여 모든 도메인에서의 요청을 허용합니다.
+// CORS 설정
 app.use(cors());
 
-// 주식 데이터를 반환하는 API 엔드포인트
-app.get('/api/stocks', (req, res) => {
-  res.json(stocks);
+app.get('/stocks', async (req, res) => {
+  let connection;
+
+  try {
+    connection = await oracleDbModule.getConnection();
+
+    // 여기에서 SQL 쿼리 또는 작업을 수행합니다.
+    // 예시: SELECT * FROM stocks;
+    // const result = await connection.execute('SELECT * FROM stocks');
+
+    res.send('Stocks data retrieved successfully!');
+  } catch (error) {
+    console.error('Error: ', error);
+    res.status(500).send('Internal Server Error');
+  } finally {
+    if (connection) {
+      await oracleDbModule.closeConnection(connection);
+    }
+  }
 });
 
 // 서버 시작

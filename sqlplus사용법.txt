@@ -1,0 +1,10 @@
+>SQLPLUS
+system
+비밀번호
+conn/as sysdba //관리자권한으로 접속
+
+create user rkdgkrud identified by [1234];
+
+grant connect, resource, dba to rkdgkrud;
+
+select * from all_users;

@@ -1,0 +1,7 @@
+Vue.js 프론트엔드:
+
+npm run serve
+
+Express 백엔드 (다른 터미널 창에서 실행):
+
+node server.js

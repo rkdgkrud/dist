@@ -1,0 +1,5 @@
+node 에서 db 연결하려는데 계속 Error executing query:  NJS-138: connections to this database server version are not supported by node-oracledb in Thin mode 에러
+
+Thin 모드는 Oracle Database 12.1 이상을 지원합니다. Oracle Database 11g를 사용하려면 Thick 모드로 전환하거나 데이터베이스 버전을 업그레이드해야 합니다.
+
+thick 모드로 전환하여 사용

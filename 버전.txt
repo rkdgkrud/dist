@@ -1,0 +1,4 @@
+node-oracledb 6.3.0
+oracle database 11.2.0.2.0
+Oracle Instant Client 21.13.0.0
+set TNS_ADMIN=C:\Users\admin\Downloads\instantclient-basic-windows.x64-21.13.0.0.0dbru\instantclient_21_13
