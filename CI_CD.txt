@@ -17,3 +17,8 @@ module.exports = {
 }
 Vue 프로젝트가 빌드되고 결과물에 dist에 저장됨
 연결된 리모트 저장소에 gh-pages 브랜치로 빌드된 정적 파일이 push 됨
+
+4. action -> workflow yaml 파일 생성
+설정에서 권한 풀어줘야함 read write 가능하게
+
+5. https://rkdgkrud.github.io/vue/ 로 자동빌드
