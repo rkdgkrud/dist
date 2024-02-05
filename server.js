@@ -14,7 +14,7 @@ const port = 3000;
 app.use(cors());
 
 // 세션 설정
-app.use(session({
+app.use(session({ 
   secret: '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',
   resave: true,
   saveUninitialized: true
