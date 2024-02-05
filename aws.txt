@@ -1,0 +1,28 @@
+https://goodgid.github.io/Github-Action-CI-CD-AWS-EC2/ 참고
+
+ec2 > 인스턴스 > 태그관리
+
+ 키 : CodeDeploy-Element 값 : WebServerGroup
+
+
+보안그룹 
+
+inbound rules 추가
+
+할당된 ipv4 주소 52.79.100.179
+
+1년 뒤에 정적인 ip를 발급받은것을 release 해야지 돈이 청구가 안됨
+나중에 ec2 인스턴스 종료해야함
+
+
+aws 접속 url
+
+http://ec2-52-79-100-179.ap-northeast-2.compute.amazonaws.com:9000/
+auto_pj_key
+ssh -i "auto_pj_key.pem" ubuntu@ec2-52-79-100-179.ap-northeast-2.compute.amazonaws.com
+ftp-simple 다운
+https://blog-han.tistory.com/59?category=711525
+
+
+//배포
+https://blog-han.tistory.com/58

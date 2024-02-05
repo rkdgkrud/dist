@@ -7,7 +7,6 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "node server.js",
-  
     "predeploy": "vue-cli-service build",
     "deploy": "gh-pages -d dist",
     "clean": "gh-pages-clean"
@@ -24,6 +23,7 @@
     "passport": "^0.7.0",
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^2.0.0",
+    "path": "^0.12.7",
     "roboto-fontface": "*",
     "vue": "^3.2.13",
     "vue-gapi": "^2.1.2",
