@@ -1,0 +1,19 @@
+1. npm install gh-pages --save-dev
+
+자동배포를 통해서 배포된 페이지 소스코드를 gh-pages를 통해 관리하는 관련 라이브러리
+
+2. package.json
+
+"predeploy": "vue-cli-service build",
+    "deploy": "gh-pages -d dist",
+    "clean": "gh-pages-clean"
+추가
+
+3.vue.config.js
+
+module.exports = {
+    publicPath: '/<repository name>/',
+    outputDir: 'dist' 
+}
+Vue 프로젝트가 빌드되고 결과물에 dist에 저장됨
+연결된 리모트 저장소에 gh-pages 브랜치로 빌드된 정적 파일이 push 됨

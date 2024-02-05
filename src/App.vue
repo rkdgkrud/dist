@@ -11,7 +11,7 @@
       </div>
       <div v-else>
         <p>Welcome, Guest!</p>
-        <button @click="loginWithGoogle">Login with Google</button><br>
+        <button @click="loginWithGoogle">!!Login with Google</button><br>
         <button @click="loginPage">Login</button><br>
         <button @click="Signup">Signup</button><br>
         <button @click="stocklist">stocklist</button><br>
