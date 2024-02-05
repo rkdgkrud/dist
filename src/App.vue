@@ -10,8 +10,8 @@
         <button @click="logout">Logout</button>
       </div>
       <div v-else>
-        <p>Welcome, Guest!</p>
-        <button @click="loginWithGoogle">!!Login with Google</button><br>
+        <p>Welcome, Guest!</p><p>됐니?</p>
+        <button @click="loginWithGoogle">Login with Google</button><br>
         <button @click="loginPage">Login</button><br>
         <button @click="Signup">Signup</button><br>
         <button @click="stocklist">stocklist</button><br>
