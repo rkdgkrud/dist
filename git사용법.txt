@@ -6,3 +6,5 @@ git commit -m "commit 메세지"
 git remote add orgin "https://github.com/rkdgkrud/vue"
 
 git push orgin master
+
+:
