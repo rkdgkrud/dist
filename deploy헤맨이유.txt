@@ -1,0 +1,12 @@
+약 30번의 trouble shooting 이후 success....
+
+원인은 실제 command 실행하는 경로와 해당 라이브러리나 실행파일의 경로가 달라서 
+접근권한이 없어서 실패
+
+또는
+
+bucket 접근 권한을 해제하는것
+
+또는 
+
+scripts 경로만들어주고 해당 sh 스크립트 x 권한주기 chmod +x 실행파일
