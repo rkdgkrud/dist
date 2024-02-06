@@ -1,0 +1,56 @@
+** CI/CD 로직 **
+----------------------------------------------------
+
+개발자가 깃 허브에 코드를 푸쉬  CodePipeline에서 인식
+소스 코드를 Code Build에서 빌드 한 뒤, 아티팩트를 s3에 저장
+Deploy에서 배포 준비
+준비가 완료되면 Elastic Beanstalk으로 배포
+
+--------------------------------------------------------------------
+AWS EC2로 배포하는 방법 및 인스턴스 연결 / Github 연결 참고 블로그,
+https://velog.io/@qierapu1im/AWS-EC2%EB%A1%9C-%ED%94%84%EB%A1%A0%ED%8A%B8-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0-part-2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EC%97%B0%EA%B2%B0%EA%B3%BC-Github-%EC%97%B0%EA%B2%B0-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%AC%B4%EC%A4%91%EB%8B%A8-%EB%B0%B0%ED%8F%AC
+
+repo
+리포지터리 생성
+리포지터리 네임 : vue-repo-01
+
+http://172.31.45.67:8081
+
+AWS CodeDeploy CI/CD 
+https://velog.io/@orijoon98/Github-Actions-AWS-CodeDeploy%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-CICD-Node.js2
+
+AWS 버킷 NAME : vue-build
+
+1)EC2에대한 IAM 권한 설정
+
+IAM 권한 
+AWSCodeDeployFullAccess
+AmazonS3FullAccess 
+추가
+
+역할이름 : ec2-deploy
+
+해당 인스턴스에 iam 권한 적용
+
+2) CodeDeploy IAM 권한 설정 
+
+역할이름 : code-deploy
+
+어플리케이션 이름 : vue-codedeploy
+
+
+3) 배포그룹 생성
+
+그룹이름 : GROUP
+
+서비스 역할 : arn:aws:iam::533267074833:role/code-deploy
+
+
+
+4) IAM 사용자 추가
+
+github actions 에서 s3에 접근을 해서 파일을 업로드 할수있는
+iam 사용자 추가
+
+사용자 이름 : deployUser
+암호 : e1'B}4@}
