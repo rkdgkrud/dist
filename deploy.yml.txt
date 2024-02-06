@@ -1,0 +1,51 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main  # 빌드를 실행할 브랜치 이름을 'main'로 변경
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build  # 빌드 스크립트에 따라 변경
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+
+
+    - name: zip file
+      run: zip -r hous.zip ./dist ./scripts ./appspec.yml ./.env ./package.json
+
+    - name: AWS configure credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}          
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-northeast-2
+    - name: upload to S3
+      run: aws s3 cp --region ap-northeast-2 ./hous.zip s3://vue-build/deploy/
+
+    - name: deploy with AWS codeDeploy
+      run: aws deploy create-deployment
+          --application-name vue-codedeploy
+          --deployment-config-name CodeDeployDefault.OneAtATime
+          --deployment-group-name GROUP
+          --s3-location bucket=vue-build,bundleType=zip,key=deploy/hous.zip     

@@ -1,0 +1,4 @@
+codedeploy-agent 로그 파일을 확인할 수 있다는것을 알게되어
+
+푸티로 ec2 접속후
+/var/log/aws/codedeploy-agent 경로에 위치한 로그 확인 결과
