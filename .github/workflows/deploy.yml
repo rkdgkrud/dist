@@ -45,7 +45,7 @@ jobs:
 
     - name: deploy with AWS codeDeploy
       run: aws deploy create-deployment
-          --application-name hous-codedeploy
+          --application-name vue-codedeploy
           --deployment-config-name CodeDeployDefault.OneAtATime
           --deployment-group-name GROUP
           --s3-location bucket=hous-build,bundleType=zip,key=deploy/hous.zip     
