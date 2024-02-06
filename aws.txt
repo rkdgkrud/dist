@@ -17,7 +17,8 @@ inbound rules 추가
 
 aws 접속 url
 
-http://ec2-52-79-100-179.ap-northeast-2.compute.amazonaws.com:9000/
+http://52.79.100.179:8080/vue/
+
 auto_pj_key
 ssh -i "auto_pj_key.pem" ubuntu@ec2-52-79-100-179.ap-northeast-2.compute.amazonaws.com
 ftp-simple 다운
