@@ -1,7 +1,10 @@
 #!/bin/bash
+
 REPOSITORY=/home/ubuntu/build
 
 cd $REPOSITORY
+npm install -g pm2
+yarn global add pm2
 
-sudo /usr/bin/yarn
-sudo /usr/bin/pm2 start dist
+yarn
+pm2 start dist
