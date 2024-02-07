@@ -23,9 +23,3 @@ yarn
 # Start the application with pm2
 cd $REPOSITORY   # 명시적으로 작업 디렉토리 지정
 pm2 start dist
-
-# nodemon 설치
-npm install -g nodemon
-
-# nodemon을 사용하여 서버 실행
-nodemon npm run serve
