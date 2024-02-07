@@ -10,7 +10,7 @@ async function getConnection() {
     const connection = await oracledb.getConnection({
       user: dbConfig.user,
       password: dbConfig.password,
-      connectString: 'localhost:1521/xe'
+      connectString: `${process.env.HOST || 'localhost'}:1521/xe`
     });
     return connection;
   } catch (err) {

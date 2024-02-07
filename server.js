@@ -9,7 +9,6 @@ const { OAuth2Strategy: GoogleStrategy } = require('passport-google-oauth');
 const app = express();
 const port = 3000;
 
-
 // CORS 설정
 app.use(cors());
 
@@ -27,7 +26,7 @@ app.use(passport.session());
 passport.use(new GoogleStrategy({
   clientID: '666323034611-cdbgaiumph23s72sa97t8ogj9l9i9ctl.apps.googleusercontent.com',
   clientSecret: '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',
-  callbackURL: 'http://localhost:3000/auth/google/callback'
+  callbackURL: `http:///${process.env.HOST || 'localhost'}:3000/auth/google/callback`
 },
 function(accessToken, refreshToken, profile, done) {
   return done(null, profile);
@@ -97,5 +96,5 @@ app.get('/stocks', async (req, res) => {
 
 // 서버 시작
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server is running at http://${process.env.HOST || 'localhost'}:${port}`);
 });

@@ -32,6 +32,7 @@ export default {
       greeting: 'Welcome to My App',
       isLoggedIn: false,
       user: null,
+      host: window.location.hostname // host 정보를 데이터로 추가
     };
   },
   methods: {
@@ -39,24 +40,24 @@ export default {
       // Google Sign-In 시작
       this.initGoogleSignIn();
     },
-     loginWithGoogle() {
+    loginWithGoogle() {
       // Google 로그인 버튼 클릭 시 서버의 / 엔드포인트로 GET 요청
-      window.location.href = 'http://localhost:3000';
+      window.location.href = `http://${this.host}:3000`;
     },
     loginPage() {
       // Google 로그인 버튼 클릭 시 서버의 / 엔드포인트로 GET 요청
-      window.location.href = 'http://localhost:8081/LoginPage';
+      window.location.href = `http://${this.host}:8081/LoginPage`;
     },
     Signup() {
       // Google 로그인 버튼 클릭 시 서버의 / 엔드포인트로 GET 요청
-      window.location.href = 'http://localhost:8081/SignUp';
+      window.location.href = `http://${this.host}:8081/SignUp`;
     },
     stocklist() {
-      window.location.href = 'http://localhost:8081/stocklist';
+      window.location.href = `http://${this.host}:8081/stocklist`;
     },
     checkLoginStatus() {
       // 로그인 상태 확인
-      this.$axios.get('https://localhost:8081/check_login_endpoint')
+      this.$axios.get(`https://${this.host}:8081/check_login_endpoint`)
         .then((response) => {
           this.isLoggedIn = response.data.isLoggedIn;
           if (this.isLoggedIn) {
@@ -73,7 +74,7 @@ export default {
         client_id: '666323034611-cdbgaiumph23s72sa97t8ogj9l9i9ctl.apps.googleusercontent.com',
         scope: 'https://www.googleapis.com/auth/userinfo.profile',
         ux_mode: 'redirect',
-        redirect_uri: 'https://localhost:8081/code_callback_endpoint',
+        redirect_uri: `https://${this.host}/code_callback_endpoint`,
         state: 'YOUR_BINDING_VALUE',
       });
 
@@ -81,7 +82,7 @@ export default {
       googleSignInClient.grantOfflineAccess()
         .then((response) => {
           // 서버로 인증 코드 전송
-          this.$axios.post('https://localhost:8081/exchange_code_endpoint', {
+          this.$axios.post(`https://${this.host}:8081/exchange_code_endpoint`, {
             code: response.code,
           })
             .then(() => {

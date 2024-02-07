@@ -29,6 +29,7 @@ import axios from 'axios';
 export default {
   data() {
     return {
+      host: window.location.hostname, // host 정보를 데이터로 추가
       stocks: [],
       showTable: false
     };
@@ -36,7 +37,7 @@ export default {
   methods: {
     showStockPrices() {
       // 버튼 클릭 시 주식 데이터 다시 가져오기
-      axios.get('http://localhost:3000/stocks')
+      axios.get('http://${this.host}:3000/stocks')
         .then(response => {
           this.stocks = response.data;
           this.showTable = true;
