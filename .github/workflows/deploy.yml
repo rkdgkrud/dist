@@ -28,11 +28,11 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+        publish_dir: ./vue
 
 
     - name: zip file
-      run: zip -r hous.zip ./dist ./scripts ./appspec.yml ./.env ./package.json
+      run: zip -r hous.zip ./vue ./scripts ./appspec.yml ./.env ./package.json
 
     - name: AWS configure credentials
       uses: aws-actions/configure-aws-credentials@v1
